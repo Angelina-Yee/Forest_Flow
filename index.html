@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Forest Flow</title>
+
+        <!--fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+        <!--stylesheet-->
+        <link rel="stylesheet" href="css/styles.css"/>
+    </head>
+    <body>
+        <!--Splash Page-->
+        <div id="screen_intro" class="screen active">
+            <div class="intro_bg"></div>
+        </div>
+
+        <!--Home Page-->
+        <div id="screen_home" class="screen">
+            <div class="home">
+                <div class="musicnotes">
+                    <div class="note note1" data-src="audios/rain.mp3"></div>
+                    <div class="note note2" data-src="audios/beach.mp3"></div>
+                    <div class="note note3" data-src="audios/campfire.mp3"></div>
+                    <div class="note note4" data-src="audios/underwater.mp3"></div>
+                </div>
+                <a href="pomodoro.html" id="sun" target="_blank" aria-label="Pomodoro Timer"></a>
+                <a href="to-do.html" id="table" target="_blank" aria-label="Task Organizer"></a>
+            </div>
+        </div>
+
+        <!--Audio Player-->
+        <audio id="player" preload="auto" loop></audio>
+
+        <!--Guide-->
+        <ul id="tour_steps" style="display:none;">
+            <li class="tour_step" data-selector=".musicnotes" data-position="top">Each music note plays a different tune! Select you ambience! 
+                <span class="tour_next">Click here for next...</span></li>
+            <li class="tour_step" data-selector="#sun" data-position="top">Study at your own pace! Click on the sun for the pomodoro timer! 
+                <span class="tour_next">Click here for next...</span></li>
+            <li class="tour_step" data-selector="#table" data-position="bottom">Too much on your plate? The picnic table will help you organize! 
+                <span class="tour_next">Click here for next...</span></li>
+        </ul>
+
+        <div id="tour_overlay">
+            <div class="tour_message"></div>
+        </div>
+
+        <!--JS-->
+        <script src="js/script.js"></script>
+    </body>
+</html>

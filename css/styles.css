@@ -1,0 +1,198 @@
+/* Screens */
+.screen{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen.active{
+    display: flex;
+}
+
+/* Intro */
+#screen_intro .intro_bg{
+    position:absolute;
+    top:0;
+    left:0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: url('../assets/SplashPage.svg') no-repeat center top;
+    background-size: cover;
+}
+
+/* Home */
+#screen_home .home{
+    position:absolute;
+    top:0;
+    left:0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: url('../assets/Background.svg') no-repeat center top;
+    background-size: cover;
+}
+
+.musicnotes{
+    position: absolute;
+    display: flex;
+}
+
+.note1{ 
+    background-image: url("../assets/music_note.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    cursor: pointer;
+    width: 48px;
+    height: 46px;
+    top: 66.4vh;
+    left: 10.35vw;
+}
+
+.note2{ 
+    background-image: url("../assets/music_note1.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    cursor: pointer;
+    width: 65px;
+    height: 64px;
+    top: 33.65vh;
+    left: 36.5vw;
+}
+
+.note3{ 
+    background-image: url("../assets/music_note2.svg");
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    cursor: pointer;
+    width: 61px;
+    height: 55px;
+    top: 65.65vh;
+    left: 38.1vw;
+}
+.note4{ 
+    background-image: url("../assets/music_note3.svg");
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    cursor: pointer;
+    width: 61px;
+    height: 55px;
+    top: 76.9vh;
+    left: 40.53vw;
+}
+
+#sun{
+    position: absolute;
+    background-image: url("../assets/sun.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    width: 530px;
+    height: 517px;
+    top: -6vh;
+    left: 35.4vw;
+}
+
+#table{
+    position: absolute;
+    background-image: url("../assets/table.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    width: 700px;
+    height: 999px;
+    top: 2.5vh;
+    left: 52.4vw;
+}
+
+#tour_overlay{
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    display: none;
+    z-index: 9999;
+    pointer-events: auto;
+}
+
+#tour_overlay.step-1 .tour_message{
+    top: 25%;
+    left: 60%;
+    transform: translateX(-50%);
+}
+
+#tour_overlay.step-2 .tour_message{
+    top: 55%;
+    left: 54%;
+    transform: translateX(-50%);
+}
+
+#tour_overlay.step-3 .tour_message{
+    top: 50%;
+    left: 40%;
+    transform: translateX(-50%);
+}
+
+.tour_message{
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    position: absolute;
+    width: 430px;
+    height: 100px;
+    text-align: center;
+    padding: 1rem;
+    background: #fff;
+    opacity: 0.95;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgb(72, 72, 72);
+}
+
+.tour_next{
+    position: absolute;
+    bottom: 8px;
+    right: 11vw;
+    font-size: 17px;
+    color: rgb(152, 152, 152);
+    cursor: pointer;
+}
+
+.highlight{
+    z-index: 10000;
+    filter: brightness(1.5) drop-shadow(0 0 7px rgb(255, 217, 0)) drop-shadow(0 0 7px rgb(255, 217, 0));
+}
+
+.note.selected{
+    z-index: 10000;
+    filter: brightness(1.5) drop-shadow(0 0 7px rgb(255, 217, 0)) drop-shadow(0 0 7px rgb(255, 217, 0));
+}
+
+#sun.highlight{
+    z-index: 10000;
+    filter: drop-shadow(0 0 7px rgb(255, 217, 0)) drop-shadow(0 0 7px rgb(255, 217, 0)) drop-shadow(0 0 7px rgb(255, 217, 0));
+}
+
+#table.highlight{
+    z-index: 10000;
+    filter: drop-shadow(0 0 7px rgb(255, 217, 0)) drop-shadow(0 0 7px rgb(255, 217, 0)) drop-shadow(0 0 7px rgb(255, 217, 0));
+}
+
