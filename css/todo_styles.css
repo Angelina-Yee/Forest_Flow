@@ -13,8 +13,7 @@ body{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background: url('../assets/todo_Background.svg') no-repeat center top;
-    background-size: cover;
+    background-color: #F9E168;
 }
 
 /* Intro */
@@ -30,31 +29,34 @@ body{
 
 /* Left: Task List */
 .task_list{
+    background: url('../assets/list_background.svg') no-repeat center top;
+    background-size: contain;
     display: flex;
     flex-direction: column;
-    flex: 0 0 380px;
+    flex: 0 0 480px;
     height: 100%;
     position: relative;
     padding: 2rem 1.5rem 1.5rem;
-    margin-left: -43px;
+    margin-left: -90px;
+    margin-top: -49px;
 }
 
 .task_list h2{
     flex: 0 0 auto;
     text-align: center;
     font-size: 2.25rem;
-    margin-bottom: 1rem;
+    padding-top: 30px;
 }
 
 .task_list ul{
     flex: 1 1 auto;
     overflow-y: auto;
     margin: 0;
-    padding-right: 0rem;
     padding-bottom: 4rem;
     max-height: 270px;
     list-style: disc inside;
     padding-left: 1rem;
+    width: 430px;
 }
 
 .task_item{
@@ -63,6 +65,7 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 0;
+    margin-left: 25px;
 }
 
 .task_item span{
@@ -93,7 +96,8 @@ body{
 
 .task_list .stats{
     flex: 0 0 auto;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    margin-left: 3rem;
     font-weight: 600;
     font-size: 25px;
     line-height: 2.7;
@@ -119,60 +123,84 @@ body{
 /*Top Right: Progress + Date */
 
 .right_panel{
-    flex: 0 0 720px;
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
-    margin-left: 6px;
 }
 
 .aside_top{
     height: 300px;
     display: flex;
     justify-content: space-between;
-    width: 775px;
-    margin-left: 103px;
     margin-top: 3px;
 }
 
 .date{
+    background: #A9D4FF;
+    margin-left: 60px;
+    margin-right: 60px;
     justify-content: center;
     align-items: center;
-    width: 261px;
+    width: 250px;
+    height: 330px;
+    border: 4px solid #000;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 #dayName{
-    font-size: 3rem;
-    padding-left: 95px;
-    padding-top: 45px;
+    background-color: rgb(179, 0, 0);
+    border-radius: 10px 10px 0 0;
+    width: 85%;
+    text-align: center;
+    margin: 0;
+    display: block;
+    font-size: 3.5rem;
+    padding-top: 35px;
+    color: white;
 }
 
 #dayNum{
-    font-size: 120px;
-    padding-left: 6.5rem;
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+    width: 85%;
+    text-align: center;
+    margin: 0;
+    display: block;
+    font-size: 140px;
     color: rgb(179, 0, 0);
 }
 
 .progression{
+    background: #A9D4FF;
+    background-size: contain;
     display: flex;
     flex: 1;
     flex-direction: column;
     text-align: center;
     align-items: center;
     justify-content: center;
-    padding-top: 93px;
-    padding-right: 53px;
+    margin-left: 20px;
+    border: 4px solid #000;
+    border-radius: 50px;
+    padding-right: 25px;
+    height: 200px;
+    margin-top: 8rem;
 }
 
 .progression h2{
     font-size: 2rem;
     letter-spacing: 1px;
+    margin-left: 30px;
 }
 
 .progress_bar{
+    margin-left: 30px;
     border-radius: 50px;
-    border: 1px solid #000;
+    border: 5px solid #000;
     height: 2.38rem;
     width: 24.8rem;
     background: #fff;
@@ -189,22 +217,24 @@ body{
 /*Bottom Right: Message*/
 
 .aside_bottom{
-    justify-content: space-between;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     height: 300px;
-    width: 720px;
+    width: 755px;
     padding: 1rem;
     margin-bottom: 29px;
-    margin-left: 115px;
+    margin-left: 18px;
+    background: #A9D4FF;
+    border: 4px solid #000;
+    border-radius: 20px;
 }
 
 #message{
-    width: 680px;
+    width: 710px;
     flex: 1;
     border-radius: 10px;
-    font-size: 20px;
     padding: 20px;
     font-family: "Patrick Hand", cursive;
     font-weight: 400;
@@ -222,12 +252,14 @@ body{
     cursor: pointer;
     justify-content: space-between;
     align-items: center;
-    right: 120px;
-    bottom: 110px;
+    flex: 0 0 auto;
+    margin-top: 13rem;
+    margin-left: 33rem;
 }
 
 #submitMsg{
     background: #FFEA97;
+    flex: 0 0 auto;
     padding: 0.5rem 1rem;
     border: 4px solid #000;
     border-radius: 30px;
