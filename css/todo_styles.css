@@ -90,7 +90,7 @@ body{
     border: none;
     color: #c42c2c;
     font-size: 1rem;
-    cursor: pointe;
+    cursor: pointer;
     padding: 0 0.5rem;
 }
 
@@ -300,4 +300,175 @@ body{
 
 .end_content p{
     font-size: 1.5rem;
+}
+
+/*Media Query*/
+@media screen and (max-height: 800px){
+    .aside_bottom{
+        margin-top: 30px;
+    }
+
+    .aside_top{
+        margin-bottom: 30px;
+    }
+
+    .task_list .stats{
+        margin-top: 0rem;
+    }
+}
+
+@media screen and (max-width: 1330px){
+    .task_list{
+        margin-left: -15px;
+    }
+
+    .date{
+        display: none;
+    }
+
+    .aside_top{
+        width: 30vw;
+    }
+
+    .progression{
+        margin-left: 25%;
+    }
+
+    .aside_bottom{
+        width: 600px;
+    }
+
+    #message{
+        width: 550px;
+    }
+
+    .message_footer{
+        margin-left: 25rem;
+    }
+}
+
+@media screen and (max-width: 1250px){
+    .task_list{
+        margin-left: -40px;
+    }
+}
+
+@media screen and (max-width: 1220px){
+    html, body{
+        height: auto;
+    }
+
+    body{
+        margin: 0;
+        display: block;
+        min-height: 100vh;
+        overflow-y: auto;
+        overflow-x: none;
+    }
+
+    .todo_container{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: auto;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .right_panel{
+        display: contents;
+    }
+
+    .aside_top{
+        width: 470px;
+        align-self: center;
+        align-items: center;
+        margin-left: -70px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        height: auto;
+    }
+
+    .progression{
+        order: 0;
+        align-self: center;
+        flex: 0 0 auto;
+        margin: 5rem 10rem;
+        margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .task_list{
+        order: 1;
+        flex: 0 0 900px;
+        width: 500px;
+        align-self: center;
+        margin-top: 0.5px;
+        margin-left: -60px;
+    }
+
+    .task_list .stats{
+        margin-top: 30px;
+    }
+
+    .aside_bottom{
+        order: 2;
+        align-self: center;
+        height: 280px;
+        width: 900px;
+        margin-top: -6rem;
+        margin-left: -68px;
+    }
+
+    #message{
+        width: 850px;
+    }
+
+    .message_footer{
+        margin-left: 42rem;
+    }
+
+}
+
+@media screen and (max-width: 1000px){
+    .aside_bottom{
+        width: 800px;
+    }
+
+    #message{
+        width: 750px;
+    }
+
+    .message_footer{
+        margin-left: 35rem;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .aside_bottom{
+        width: auto;
+    }
+
+    #message{
+        width: 550px;
+    }
+
+    .message_footer{
+        margin-left: 25rem;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .aside_bottom{
+        width: auto;
+    }
+
+    #message{
+        width: 450px;
+    }
+
+    .message_footer{
+        margin-left: 18rem;
+    }
 }
