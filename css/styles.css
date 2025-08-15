@@ -4,8 +4,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     align-items: center;
     justify-content: center;
 }
@@ -15,11 +15,17 @@
 }
 
 /* Intro */
+body{
+    background-color: #C2EAFF;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 #screen_intro .intro_bg{
-    position:absolute;
-    top:0;
-    left:0;
-    bottom: 0;
+    position: relative;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -29,100 +35,62 @@
 
 /* Home */
 #screen_home .home{
-    position:absolute;
-    top:0;
-    left:0;
-    bottom: 0;
+    position: absolute;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background: url('../assets/Background.svg') no-repeat center top;
-    background-size: cover;
+    background-image: 
+    url("../assets/tree_left.svg"),
+    url("../assets/tree_right.svg"),
+    linear-gradient(#8ECA58, #8ECA58);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: 
+    right 0 top 0, 
+    left 0 top 0,
+    left 0 bottom 0;
+    background-size: 
+    300px auto,
+    350px auto,
+    100% 165px;
 }
 
-.musicnotes{
+.characters{
     position: absolute;
-    display: flex;
-}
-
-.note1{ 
-    background-image: url("../assets/music_note.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    cursor: pointer;
-    width: 48px;
-    height: 46px;
-    top: 66.4vh;
-    left: 10.35vw;
-}
-
-.note2{ 
-    background-image: url("../assets/music_note1.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    cursor: pointer;
-    width: 65px;
-    height: 64px;
-    top: 33.65vh;
-    left: 36.5vw;
-}
-
-.note3{ 
-    background-image: url("../assets/music_note2.svg");
-    cursor: pointer;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    cursor: pointer;
-    width: 61px;
-    height: 55px;
-    top: 65.65vh;
-    left: 38.1vw;
-}
-.note4{ 
-    background-image: url("../assets/music_note3.svg");
-    cursor: pointer;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    cursor: pointer;
-    width: 61px;
-    height: 55px;
-    top: 76.9vh;
-    left: 40.53vw;
+    width: 680px;
+    height: auto;
+    top: 7rem;
+    left: 6rem;
+    z-index: 2;
+    pointer-events: none;
 }
 
 #sun{
-    position: absolute;
-    background-image: url("../assets/sun.svg");
+    position: relative;
+    display: flex;
+    background: url("../assets/sun.svg") no-repeat center;
     background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
     cursor: pointer;
-    width: 530px;
+    width: 480px;
     height: 517px;
-    top: -6vh;
-    left: 35.4vw;
+    margin-left: 30rem;
+    margin-top: -4.5rem;
+    z-index: 2;
 }
 
 #table{
-    position: absolute;
-    background-image: url("../assets/table.svg");
+    position: relative;
+    display: flex;
+    background: url("../assets/table.svg") no-repeat center;
     background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
     cursor: pointer;
-    width: 700px;
+    width: 650px;
     height: 999px;
-    top: 2.5vh;
-    left: 52.4vw;
+    margin-top: -29.5rem;
+    margin-left: 48rem;
+    z-index: 2;
 }
+
+/* Tour */
 
 #tour_overlay{
     position: fixed;
@@ -134,21 +102,21 @@
 }
 
 #tour_overlay.step-1 .tour_message{
-    top: 25%;
-    left: 60%;
-    transform: translateX(-50%);
+    position: relative;
+    margin-left: 13rem;
+    margin-top: 20rem;
 }
 
 #tour_overlay.step-2 .tour_message{
-    top: 55%;
-    left: 54%;
-    transform: translateX(-50%);
+    position: relative;
+    margin-left: 32rem;
+    margin-top: 25rem;
 }
 
 #tour_overlay.step-3 .tour_message{
-    top: 50%;
-    left: 40%;
-    transform: translateX(-50%);
+    position: relative;
+    margin-left: 20rem;
+    margin-top: 25rem;
 }
 
 .tour_message{
@@ -156,7 +124,6 @@
     font-weight: 400;
     font-style: normal;
     font-size: 30px;
-    position: absolute;
     width: 430px;
     height: 100px;
     text-align: center;
@@ -176,12 +143,13 @@
     cursor: pointer;
 }
 
-.highlight{
-    z-index: 10000;
-    filter: brightness(1.5) drop-shadow(0 0 7px rgb(255, 217, 0)) drop-shadow(0 0 7px rgb(255, 217, 0));
+.tour_message:hover{
+    opacity: 0.8;
 }
 
-.note.selected{
+/* Highlight */
+
+.highlight{
     z-index: 10000;
     filter: brightness(1.5) drop-shadow(0 0 7px rgb(255, 217, 0)) drop-shadow(0 0 7px rgb(255, 217, 0));
 }
@@ -195,4 +163,7 @@
     z-index: 10000;
     filter: drop-shadow(0 0 7px rgb(255, 217, 0)) drop-shadow(0 0 7px rgb(255, 217, 0)) drop-shadow(0 0 7px rgb(255, 217, 0));
 }
+
+/* Media Screens */
+
 
