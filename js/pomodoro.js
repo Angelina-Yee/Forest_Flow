@@ -1,20 +1,18 @@
-// ---------------- Config (minutes) ----------------
 const DURATIONS = {
-  work: 25,   // pomodoro
-  short: 5,   // short break
-  long: 10,   // long break
+  work: 25,
+  short: 5,
+  long: 10,
 };
 
-// ---------------- State ----------------
 let secondsLeft = DURATIONS.work * 60;
 let running = false;
-let loopMode = false;      // toggled by "loop timer"
-let currentBlock = "work"; // "work" | "short" | "long"
+let loopMode = false;
+let currentBlock = "work";
 let tickId = null;
 
-// ---------------- Elements ----------------
-const minEye = document.getElementById("minEyes"); // <-- matches your HTML
-const secEye = document.getElementById("secEyes"); // <-- matches your HTML
+
+const minEye = document.getElementById("minEyes");
+const secEye = document.getElementById("secEyes"); 
 const srTimer = document.getElementById("srTimer");
 
 const playBtn = document.getElementById("playBtn");
@@ -25,18 +23,16 @@ const shortBtn = document.getElementById("shortBtn");
 const longBtn = document.getElementById("longBtn");
 const loopBtn = document.getElementById("loopBtn");
 
-// ---------------- Rendering ----------------
 function pad2(n) { return String(n).padStart(2, "0"); }
 
 function renderDigits() {
   const mins = Math.max(0, Math.floor(secondsLeft / 60));
   const secs = Math.max(0, secondsLeft % 60);
-  if (minEye) minEye.textContent = pad2(mins); // left eye → minutes
-  if (secEye) secEye.textContent = pad2(secs); // right eye → seconds
+  if (minEye) minEye.textContent = pad2(mins);
+  if (secEye) secEye.textContent = pad2(secs);
   if (srTimer) srTimer.textContent = `${pad2(mins)}:${pad2(secs)}`;
 }
 
-// ---------------- Timer Engine ----------------
 function tick() {
   if (secondsLeft > 0) {
     secondsLeft -= 1;
@@ -76,7 +72,6 @@ function setMode(mode) {
   renderDigits();
 }
 
-// ---------------- Controls ----------------
 playBtn?.addEventListener("click", start);
 pauseBtn?.addEventListener("click", stop);
 
@@ -89,7 +84,6 @@ loopBtn?.addEventListener("click", () => {
   loopBtn.setAttribute("aria-pressed", String(loopMode));
 });
 
-// Spacebar toggles play/pause
 document.addEventListener("keydown", (e) => {
   if (e.code === "Space") {
     e.preventDefault();
@@ -97,5 +91,4 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// ---------------- Init ----------------
-renderDigits(); // shows 25:00 in the eyes on load
+renderDigits();

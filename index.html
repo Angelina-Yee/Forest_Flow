@@ -1,70 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pomodoro Timer</title>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Forest Flow</title>
 
-  <!-- fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+        <!--fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 
-  <!-- styles -->
-  <link rel="stylesheet" href="./css/pomodoro_styles.css">
-</head>
-<body>
-
-  <section class="upper">
-
-    <!-- Play bubble -->
-    <button class="bubble bubble-left" id="playBtn" aria-label="Play">
-      <span class="icon icon-play"></span>
-    </button>
-
-    <!-- Pause bubble -->
-    <button class="bubble bubble-right" id="pauseBtn" aria-label="Pause">
-      <span class="icon icon-pause"></span>
-    </button>
-
-    <!-- Tomato + custom pupils -->
-    <div class="stage">
-      <img class="tomato" src="assets/tomato-noeyes.svg" alt="Tomato timer">
-
-      <!-- LEFT EYE -->
-      <div class="eye eye-left">
-        <div class="eye-sway">
-          <div class="pupil"></div>
-          <span class="eye-number" id="minEyes">25</span>
+        <!--stylesheet-->
+        <link rel="stylesheet" href="css/styles.css"/>
+    </head>
+    <body>
+        <!--Splash Page-->
+        <div id="screen_intro" class="screen active">
+            <div class="intro_bg"></div>
         </div>
-      </div>
 
-      <!-- RIGHT EYE -->
-      <div class="eye eye-right">
-        <div class="eye-sway">
-          <div class="pupil"></div>
-          <span class="eye-number" id="secEyes">00</span>
+
+        <!--Home Page-->
+        <div id="screen_home" class="screen">
+            <div class="home">
+                <img src="assets/characters.svg" class="characters" alt="characters" draggable="false">
+                <a href="pomodoro.html" id="sun" target="_blank" aria-label="Pomodoro Timer"></a>
+                <a href="to-do.html" id="table" target="_blank" aria-label="Task Organizer"></a>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Red (work) buttons on the left -->
-    <div class="controls controls-left">
-      <button class="pill pill-red" id="pomodoroBtn">pomodoro</button>
-      <button class="pill pill-red" id="loopBtn" aria-pressed="false">loop timer</button>
-    </div>
+        <!--Audio Player-->
+        
 
-    <!-- Pink (break) buttons on the right -->
-    <div class="controls controls-right">
-      <button class="pill pill-pink" id="shortBtn">short break</button>
-      <button class="pill pill-pink" id="longBtn">long break</button>
-    </div>
+        <!--Guide-->
+        <ul id="tour_steps" style="display:none;">
+            <li class="tour_step" data-selector=".musicnotes" data-position="top">Each music note plays a different tune! Select you ambience! 
+                <span class="tour_next">Click here for next...</span></li>
+            <li class="tour_step" data-selector="#sun" data-position="top">Study at your own pace! Click on the sun for the pomodoro timer! 
+                <span class="tour_next">Click here for next...</span></li>
+            <li class="tour_step" data-selector="#table" data-position="bottom">Too much on your plate? The picnic table will help you organize! 
+                <span class="tour_next">Click here for next...</span></li>
+        </ul>
 
-    <!-- Screen reader live region -->
-    <div class="sr-only" aria-live="polite" id="srTimer">25 minutes</div>
-  </section>
+        <div id="tour_overlay">
+            <div class="tour_message"></div>
+        </div>
 
-  <!-- your timer logic -->
-  <script src="./js/pomodoro.js"></script>
-</body>
+        <!--JS-->
+        <script src="js/script.js"></script>
+    </body>
 </html>
