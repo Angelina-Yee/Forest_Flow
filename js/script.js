@@ -15,33 +15,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
 });
 
 function initHome(){
-    initMusicNotes();
     startTour();
-}
-
-function initMusicNotes(){
-    const player = document.getElementById('player');
-    player.loop = true;
-    const notes = document.querySelectorAll('.note');
-    notes.forEach(el => {
-        el.addEventListener('click', () => {
-            const src = el.dataset.src;
-            if(player.src.includes(src) && !player.paused){
-                player.pause();
-                player.currentTime = 0;
-                el.classList.remove('selected');
-            }
-            else{
-                notes.forEach(n => n.classList.remove('selected'));
-                el.classList.add('selected');
-                if(!player.src.includes(src)){ 
-                    player.src = src
-                };
-                player.currentTime=0;
-                player.play();
-            }
-        });
-    });
 }
 
 function startTour(){
