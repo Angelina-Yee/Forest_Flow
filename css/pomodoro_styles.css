@@ -1,4 +1,3 @@
-/* base */
 html, body {
   margin: 0;
   padding: 0;
@@ -7,32 +6,26 @@ html, body {
 
 body{
   font-family: "Patrick Hand", cursive;
-  font-weight: 400;
-  font-style: normal;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #FFE4E0;
 }
 
-/* canvas */
 .upper{
   position: relative;
   width: min(1000px, 92vw);
   aspect-ratio: 16 / 9;
-  border-radius: 10px;
   display: grid;
   place-items: center;
 }
 
-/* smaller tomato wrapper */
 .stage{
   position: relative;
-  width: min(520px, 58vw);   /* adjust to taste */
+  width: min(520px, 58vw);
   margin: 0 auto;
 }
 
-/* tomato image */
 .tomato{
   width: 100%;
   height: auto;
@@ -40,50 +33,59 @@ body{
   filter: drop-shadow(0 8px 18px rgba(0,0,0,.12));
 }
 
-/* =========================================================
-   NUMBERS ON THE SVG PUPILS (no CSS-drawn eyes needed)
-   ========================================================= */
+
+.eye{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 78px;
+  height: 52px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.eye-left  { top: 49%; left: 30%; }
+.eye-right { top: 49%; left: 73%; }
+
+.eye-sway{
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  animation: eye-look 6s ease-in-out infinite;
+}
+
+.pupil{
+  width: 80px;
+  height: 80px;
+  background: #000;
+  border-radius: 90%;
+}
+
 .eye-number{
   position: absolute;
-  z-index: 2;
-  pointer-events: none;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /* allow 2 characters; keep centered box */
-  min-width: 1.6em;     /* was ~1.15em; wider to fit “25” */
+  display: flex; align-items: center; justify-content: center;
+  min-width: 2em;
   height: 1.2em;
-  padding: 0 .05em;
-
   color: #fff;
   font-weight: 800;
-  font-size: clamp(28px, 3.4vw, 42px);
+  font-size: clamp(36px, 5vw, 56px);
   line-height: 1;
-  text-align: center;
   text-shadow: 0 0 1px rgba(255,255,255,.12);
-
-  transform: translate(-50%, -50%);
 }
 
-.eye-number.left{
-  top: 51%;
-  left: 39%;
-  transform: translate(-50%, -50%);
-}
-.eye-number.right{
-  top: 51%;
-  left: 82%;
-  transform: translate(-50%, -50%);
+.eye-number.left { top: 51%; left: 39%; transform: translate(-40%, -35%); }
+.eye-number.right { top: 51%; left: 60%; transform: translate(125%, -35%); }
+
+@keyframes eye-look{
+  0%   { transform: translateX(0px); }
+  25%  { transform: translateX(-10px); }
+  50%  { transform: translateX(0px); }
+  75%  { transform: translateX(10px); }
+  100% { transform: translateX(0px); }
 }
 
-/* =========================================================
-   THOUGHT BUBBLES (Play / Pause)
-   ========================================================= */
+
 .bubble{
   position: absolute;
-  top: 8%;                                 /* visible above tomato */
+  top: 8%;
   width: clamp(100px, 13vw, 140px);
   aspect-ratio: 1 / 1;
   border: none;
@@ -98,7 +100,6 @@ body{
 .bubble-left{ left: 10%; }
 .bubble-right{ right: 10%; }
 
-/* little bubble tail (two small circles) */
 .bubble::before, .bubble::after{
   content: "";
   position: absolute;
@@ -114,11 +115,10 @@ body{
   bottom: -30px; left: 20%;
 }
 
-/* icons */
 .icon{ display:inline-block; }
 .icon-play{
   width: 0; height: 0;
-  border-left: 30px solid #111;            /* triangle */
+  border-left: 30px solid #111;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
   transform: translateX(3px);
@@ -134,17 +134,14 @@ body{
 .icon-pause::before{ left: 8px; }
 .icon-pause::after { right: 8px; }
 
-/* =========================================================
-   CONTROLS
-   Red (work) on the LEFT; Pink (breaks) on the RIGHT
-   ========================================================= */
+
 .controls{
   position: absolute;
   display: grid;
   gap: 16px;
 }
-.controls-left  { left: 4%;  bottom: 10%; }   /* red buttons */
-.controls-right { right: 4%; bottom: 10%; }   /* pink buttons */
+.controls-left  { left: 4%;  bottom: 10%; }
+.controls-right { right: 4%; bottom: 10%; }
 
 .pill{
   font-family: inherit;
@@ -174,7 +171,6 @@ body{
   box-shadow: 0 6px 0 #e28b98;
 }
 
-/* a11y utility */
 .sr-only{
   position:absolute !important; 
   height:1px; width:1px; 
@@ -182,7 +178,6 @@ body{
   white-space:nowrap; border:0; padding:0; margin:-1px;
 }
 
-/* responsive tweaks */
 @media (max-width: 720px){
   .stage{ width: min(440px, 78vw); }
   .bubble{ top: 10%; }
