@@ -27,11 +27,25 @@
       <span class="icon icon-pause"></span>
     </button>
 
-    <!-- Tomato + digits overlayed on the SVG pupils -->
+    <!-- Tomato + custom pupils -->
     <div class="stage">
-      <img class="tomato" src="assets/tomato.svg" alt="Tomato timer">
-      <span class="eye-number left" id="minEyes">25</span>
-      <span class="eye-number right" id="secEyes">00</span>
+      <img class="tomato" src="assets/tomato-noeyes.svg" alt="Tomato timer">
+
+      <!-- LEFT EYE -->
+      <div class="eye eye-left">
+        <div class="eye-sway">
+          <div class="pupil"></div>
+          <span class="eye-number" id="minEyes">25</span>
+        </div>
+      </div>
+
+      <!-- RIGHT EYE -->
+      <div class="eye eye-right">
+        <div class="eye-sway">
+          <div class="pupil"></div>
+          <span class="eye-number" id="secEyes">00</span>
+        </div>
+      </div>
     </div>
 
     <!-- Red (work) buttons on the left -->
@@ -50,14 +64,7 @@
     <div class="sr-only" aria-live="polite" id="srTimer">25 minutes</div>
   </section>
 
-  <!-- optional: your timer logic -->
+  <!-- your timer logic -->
   <script src="./js/pomodoro.js"></script>
-</body>
-</html>
-  
-  <div class="sr-only" aria-live="polite" id="srTimer">15 minutes</div>
-  
-  <script src="./js/pomodoro.js"></script>
-  
 </body>
 </html>
