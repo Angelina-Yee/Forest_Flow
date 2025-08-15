@@ -51,14 +51,14 @@ html, body {
     background-size: 
     300px auto,
     350px auto,
-    100% 165px;
+    100% 130px;
 }
 
 .characters{
     position: absolute;
     width: 680px;
     height: auto;
-    top: 7rem;
+    top: 8rem;
     left: 6rem;
     z-index: 2;
     pointer-events: none;
@@ -85,13 +85,12 @@ html, body {
     cursor: pointer;
     width: 650px;
     height: 999px;
-    margin-top: -29.5rem;
+    margin-top: -28.5rem;
     margin-left: 48rem;
     z-index: 2;
 }
 
 /* Tour */
-
 #tour_overlay{
     position: fixed;
     inset: 0;
@@ -148,7 +147,6 @@ html, body {
 }
 
 /* Highlight */
-
 .highlight{
     z-index: 10000;
     filter: brightness(1.5) drop-shadow(0 0 7px rgb(255, 217, 0)) drop-shadow(0 0 7px rgb(255, 217, 0));
@@ -165,5 +163,184 @@ html, body {
 }
 
 /* Media Screens */
+@media screen and (max-width: 1350px){
+    #table{
+        margin-left: 40rem;
+    }
 
+    #sun{
+        margin-left: 28rem;
+    }
+
+    .characters{
+        margin-left: -5rem;
+    }
+}
+
+@media screen and (max-width: 1210px){
+    #table{
+        margin-left: 35rem;
+    }
+
+    #sun{
+        margin-left: 23rem;
+    }
+
+    .characters{
+        margin-left: -10rem;
+    }
+}
+
+@media screen and (max-width: 1120px){
+    html, body{
+        height: auto;
+    }
+
+    body{
+        margin: 0;
+        display: block;
+        min-height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .screen{
+        position: absolute;
+        inset: 0;
+        display: none;
+    }
+
+    .screen.active{
+        display: block;
+    }
+
+    #screen_home .home{
+        position: absolute;
+        inset: 0;
+        background: #C2EAFF;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .grass{
+        flex: 0 0 130px;
+        background: linear-gradient(#8ECA58, #8ECA58) no-repeat;
+        width: 100vw;
+        height: 130px;
+    }
+
+    #sun{
+        position: absolute;
+        background-image: none;
+        background: #0f680b;
+        height: 100px;
+        margin-left: 0;
+        width: 400px;
+        border: 6px solid #613f30;
+        box-shadow: -8px 8px #613f30;
+        margin-top: 15rem;
+        cursor: pointer;
+    }
+
+    #sun::after{
+        content: "Pomodoro Timer";
+        position: absolute; 
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Patrick Hand", cursive;
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: #f1da7e;
+    }
+
+    #sun:hover{
+        width: 415px;
+    }
+
+    #table{
+        position: absolute;
+        background-image: none;
+        background: #f1da7e;
+        height: 100px;
+        width: 400px;
+        margin-top: 22rem;
+        border-right: 6px solid #613f30;
+        border-left: 6px solid #613f30;
+        border-bottom: 6px solid #613f30;
+        box-shadow: -8px 8px #613f30;
+        margin-left: 0;
+    }
+
+    #table::after{
+        content: "To-Do List";
+        position: absolute; 
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Patrick Hand", cursive;
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: #0f680b;
+    }
+
+    #table:hover{
+        width: 415px;
+    }
+
+    .characters{
+        position: relative;
+        align-self: center;
+        margin-top: 25rem;
+        margin-left: -15rem;
+    }
+
+    .fake_sun{
+        position: absolute; 
+        left: 62%;
+        top: 0;
+        width: 500px;
+        height: 300px;
+    }
+
+    .fake_sun::before{
+        content: "";
+        position: absolute;
+        display: block;
+        inset: 0;
+        background: url("../assets/sun.svg") no-repeat center;
+        background-size: contain;
+    }
+
+    .logo{
+        position: absolute; 
+        right: 52%;
+        top: 0;
+        width: 500px;
+        height: 250px;
+    }
+
+    .logo::before{
+        content: "";
+        position: absolute;
+        display: block;
+        inset: 0;
+        background: url("../assets/logo.svg") no-repeat center;
+        background-size: contain;
+    }
+
+    #tour_overlay, .tour_message, .tour_next{
+        display: none !important;
+        pointer-events: none !important;
+    }
+
+    .highlight, #sun.highlight, #table.highlight{
+        display: none !important;
+    }
+}
 
