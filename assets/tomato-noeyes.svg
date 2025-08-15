@@ -5,9 +5,8 @@
 <ellipse cx="592.804" cy="435.5" rx="155" ry="82.5" fill="white"/>
 <path d="M386.804 578C401.704 642.463 443.057 647.055 452.804 578" stroke="black" stroke-width="20" stroke-linecap="round"/>
 <path d="M296.804 299.65C279.593 277.327 215.822 277.573 193.804 299.65" stroke="black" stroke-width="20" stroke-linecap="round"/>
+<path d="M296.804 299.65C279.593 277.327 215.822 277.573 193.804 299.65" stroke="black" stroke-width="20" stroke-linecap="round"/>
 <path d="M661.804 299.65C644.593 277.327 580.822 277.573 558.804 299.65" stroke="black" stroke-width="20" stroke-linecap="round"/>
 <ellipse cx="157.304" cy="603" rx="88.5" ry="54" fill="#FF9DB3"/>
 <ellipse cx="682.304" cy="603" rx="88.5" ry="54" fill="#FF9DB3"/>
-<ellipse cx="331.804" cy="435" rx="69" ry="61" fill="black"/>
-<ellipse cx="678.804" cy="435" rx="69" ry="61" fill="black"/>
 </svg>
