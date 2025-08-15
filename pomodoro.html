@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pomodoro Timer</title>
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="./css/pomodoro_styles.css">
+</head>
+<body>
+
+  <section class="upper">
+
+    <!-- Play bubble -->
+    <button class="bubble bubble-left" id="playBtn" aria-label="Play">
+      <span class="icon icon-play"></span>
+    </button>
+
+    <!-- Pause bubble -->
+    <button class="bubble bubble-right" id="pauseBtn" aria-label="Pause">
+      <span class="icon icon-pause"></span>
+    </button>
+
+    <!-- Tomato + digits overlayed on the SVG pupils -->
+    <div class="stage">
+      <img class="tomato" src="assets/tomato.svg" alt="Tomato timer">
+      <span class="eye-number left" id="minEyes">25</span>
+      <span class="eye-number right" id="secEyes">00</span>
+    </div>
+
+    <!-- Red (work) buttons on the left -->
+    <div class="controls controls-left">
+      <button class="pill pill-red" id="pomodoroBtn">pomodoro</button>
+      <button class="pill pill-red" id="loopBtn" aria-pressed="false">loop timer</button>
+    </div>
+
+    <!-- Pink (break) buttons on the right -->
+    <div class="controls controls-right">
+      <button class="pill pill-pink" id="shortBtn">short break</button>
+      <button class="pill pill-pink" id="longBtn">long break</button>
+    </div>
+
+    <!-- Screen reader live region -->
+    <div class="sr-only" aria-live="polite" id="srTimer">25 minutes</div>
+  </section>
+
+  <!-- optional: your timer logic -->
+  <script src="./js/pomodoro.js"></script>
+</body>
+</html>
+  
+  <div class="sr-only" aria-live="polite" id="srTimer">15 minutes</div>
+  
+  <script src="./js/pomodoro.js"></script>
+  
+</body>
+</html>
