@@ -10,7 +10,6 @@ let loopMode = false;
 let currentBlock = "work";
 let tickId = null;
 
-
 const minEye = document.getElementById("minEyes");
 const secEye = document.getElementById("secEyes"); 
 const srTimer = document.getElementById("srTimer");
@@ -31,6 +30,17 @@ function renderDigits() {
   if (minEye) minEye.textContent = pad2(mins);
   if (secEye) secEye.textContent = pad2(secs);
   if (srTimer) srTimer.textContent = `${pad2(mins)}:${pad2(secs)}`;
+}
+
+function setPressed(el, pressed) {
+  if (el) el.setAttribute("aria-pressed", String(pressed));
+}
+
+function updatePressedStates() {
+  setPressed(pomodoroBtn, currentBlock === "work");
+  setPressed(shortBtn,     currentBlock === "short");
+  setPressed(longBtn,      currentBlock === "long");
+  setPressed(loopBtn, loopMode);
 }
 
 function tick() {
@@ -55,13 +65,16 @@ function start() {
   if (running) return;
   running = true;
   renderDigits();
+  updatePressedStates();
   tickId = setInterval(tick, 1000);
 }
 
 function stop() {
+  if (!running && tickId == null) { updatePressedStates(); return; }
   running = false;
   clearInterval(tickId);
   tickId = null;
+  updatePressedStates();
 }
 
 function setMode(mode) {
@@ -70,6 +83,7 @@ function setMode(mode) {
   secondsLeft = mins * 60;
   stop();
   renderDigits();
+  updatePressedStates();
 }
 
 playBtn?.addEventListener("click", start);
@@ -81,7 +95,7 @@ longBtn?.addEventListener("click",     () => setMode("long"));
 
 loopBtn?.addEventListener("click", () => {
   loopMode = !loopMode;
-  loopBtn.setAttribute("aria-pressed", String(loopMode));
+  updatePressedStates();
 });
 
 document.addEventListener("keydown", (e) => {
@@ -92,3 +106,4 @@ document.addEventListener("keydown", (e) => {
 });
 
 renderDigits();
+updatePressedStates();

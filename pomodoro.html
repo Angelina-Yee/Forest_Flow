@@ -17,21 +17,22 @@
 
   <section class="upper">
 
-    <!-- Play bubble -->
+    <!--left bubble button -->
     <button class="bubble bubble-left" id="playBtn" aria-label="Play">
+      <img src="assets/left_bubble.svg" alt="" class="bubble-img">
       <span class="icon icon-play"></span>
     </button>
 
-    <!-- Pause bubble -->
+    <!--right bubble button -->
     <button class="bubble bubble-right" id="pauseBtn" aria-label="Pause">
+      <img src="assets/right_bubble.svg" alt="" class="bubble-img">
       <span class="icon icon-pause"></span>
     </button>
 
-    <!-- Tomato + custom pupils -->
+    <!--middle tomato-->
     <div class="stage">
       <img class="tomato" src="assets/tomato-noeyes.svg" alt="Tomato timer">
 
-      <!-- LEFT EYE -->
       <div class="eye eye-left">
         <div class="eye-sway">
           <div class="pupil"></div>
@@ -39,7 +40,6 @@
         </div>
       </div>
 
-      <!-- RIGHT EYE -->
       <div class="eye eye-right">
         <div class="eye-sway">
           <div class="pupil"></div>
@@ -48,23 +48,21 @@
       </div>
     </div>
 
-    <!-- Red (work) buttons on the left -->
+    <!--left controls-->
     <div class="controls controls-left">
       <button class="pill pill-red" id="pomodoroBtn">pomodoro</button>
       <button class="pill pill-red" id="loopBtn" aria-pressed="false">loop timer</button>
     </div>
 
-    <!-- Pink (break) buttons on the right -->
+    <!--right controls-->
     <div class="controls controls-right">
       <button class="pill pill-pink" id="shortBtn">short break</button>
       <button class="pill pill-pink" id="longBtn">long break</button>
     </div>
 
-    <!-- Screen reader live region -->
     <div class="sr-only" aria-live="polite" id="srTimer">25 minutes</div>
   </section>
 
-  <!-- your timer logic -->
   <script src="./js/pomodoro.js"></script>
 </body>
 </html>
