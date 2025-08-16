@@ -43,12 +43,20 @@ body{
   z-index: 2;
 }
 
-.eye-left  { top: 49%; left: 30%; }
-.eye-right { top: 49%; left: 73%; }
+.eye-left  { 
+  top: 49%; 
+  left: 30%; 
+}
+.eye-right { 
+  top: 49%;
+  left: 73%;
+ }
 
 .eye-sway{
-  position: absolute; inset: 0;
-  display: grid; place-items: center;
+  position: absolute; 
+  inset: 0;
+  display: grid; 
+  place-items: center;
   animation: eye-look 6s ease-in-out infinite;
 }
 
@@ -61,7 +69,9 @@ body{
 
 .eye-number{
   position: absolute;
-  display: flex; align-items: center; justify-content: center;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
   min-width: 2em;
   height: 1.2em;
   color: #fff;
@@ -99,8 +109,12 @@ body{
   opacity: 0.7;
 }
 
-.bubble-left  { left: 10%; }
-.bubble-right { right: 10%; }
+.bubble-left  {
+  left: 10%; 
+}
+.bubble-right {
+  right: 10%;
+}
 
 .bubble-img{
   width: clamp(120px, 14vw, 160px);
@@ -201,17 +215,28 @@ body{
 }
 
 .controls-bottom {
-  position: fixed;      /* override any grid flow */
+  position: fixed;
   left: 50%;
-  bottom: 10%;              /* adjust spacing from bottom */
+  bottom: 10%;
   transform: translateX(-50%);
-  z-index: 10;              /* above the tomato image */
+  z-index: 10;
 }
 
-/* Custom Timer Modal */
-.modal[hidden] { display: none; }
-.modal { position: fixed; inset: 0; z-index: 999; }
-.modal__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+.modal[hidden] { 
+  display: none; 
+}
+
+.modal { 
+  position: fixed; 
+  inset: 0; 
+  z-index: 999;
+}
+
+.modal__backdrop { 
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+}
 
 .modal__dialog{
   position: relative;
@@ -257,9 +282,14 @@ body{
   justify-content: flex-end;}
 
 .modal__close{
-  position: absolute; top: 8px; right: 10px;
-  border: none; background: transparent;
-  font-size: 28px; line-height: 1; cursor: pointer;
+  position: absolute; 
+  top: 8px; 
+  right: 10px;
+  border: none; 
+  background: transparent;
+  font-size: 28px; 
+  line-height: 1; 
+  cursor: pointer;
 }
 
 .sr-only{

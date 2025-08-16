@@ -1,4 +1,4 @@
-// ===== Persistent durations (localStorage) =====
+//local Storage
 const DEFAULT_DURATIONS = { work: 25, short: 5, long: 10 };
 const STORAGE_KEY = "pomodoroDurations";
 
@@ -8,50 +8,50 @@ function loadDurations() {
     if (!raw) return { ...DEFAULT_DURATIONS };
     const parsed = JSON.parse(raw);
     return {
-      work: Number(parsed.work) || DEFAULT_DURATIONS.work,
+      work: Number(parsed.work)  || DEFAULT_DURATIONS.work,
       short: Number(parsed.short) || DEFAULT_DURATIONS.short,
-      long: Number(parsed.long) || DEFAULT_DURATIONS.long,
+      long: Number(parsed.long)   || DEFAULT_DURATIONS.long,
     };
   } catch {
     return { ...DEFAULT_DURATIONS };
   }
 }
-
 function saveDurations(durs) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(durs));
 }
 
 let DURATIONS = loadDurations();
 
-// ===== State =====
+//States
 let secondsLeft = DURATIONS.work * 60;
-let running = false;
-let loopMode = false;
+let running     = false;
+let loopMode    = false;
 let currentBlock = "work";
-let tickId = null;
+let tickId      = null;
+let alarmLock   = false;
 
-// ===== Elements =====
+//Elements
 const minEye = document.getElementById("minEyes");
-const secEye = document.getElementById("secEyes"); 
+const secEye = document.getElementById("secEyes");
 const srTimer = document.getElementById("srTimer");
 
-const playBtn = document.getElementById("playBtn");
+const playBtn  = document.getElementById("playBtn");
 const pauseBtn = document.getElementById("pauseBtn");
 
 const pomodoroBtn = document.getElementById("pomodoroBtn");
-const shortBtn = document.getElementById("shortBtn");
-const longBtn = document.getElementById("longBtn");
-const loopBtn = document.getElementById("loopBtn");
+const shortBtn    = document.getElementById("shortBtn");
+const longBtn     = document.getElementById("longBtn");
+const loopBtn     = document.getElementById("loopBtn");
 
-// Custom Timer UI
-const customBtn    = document.getElementById("customBtn");
-const customModal  = document.getElementById("customModal");
-const customForm   = document.getElementById("customForm");
-const inWork       = document.getElementById("inWork");
-const inShort      = document.getElementById("inShort");
-const inLong       = document.getElementById("inLong");
+//Custom Timer UI
+const customBtn   = document.getElementById("customBtn");
+const customModal = document.getElementById("customModal");
+const customForm  = document.getElementById("customForm");
+const inWork      = document.getElementById("inWork");
+const inShort     = document.getElementById("inShort");
+const inLong      = document.getElementById("inLong");
 
-// ===== Utilities =====
+//Utilities
 function pad2(n) { return String(n).padStart(2, "0"); }
 
 function renderDigits() {
@@ -67,41 +67,68 @@ function setPressed(el, pressed) {
 }
 
 function updatePressedStates() {
-  // bubbles (mutually exclusive)
+  // thought bubbles
   setPressed(playBtn,  running);
   setPressed(pauseBtn, !running);
 
-  // pills (mutually exclusive)
+  //pill buttons
   setPressed(pomodoroBtn, currentBlock === "work");
   setPressed(shortBtn,     currentBlock === "short");
   setPressed(longBtn,      currentBlock === "long");
 
-  // loop = independent toggle
+  //loop button
   setPressed(loopBtn, loopMode);
 }
 
-// ===== Timer logic =====
-function tick() {
-  if (secondsLeft > 0) {
-    secondsLeft -= 1;
-    renderDigits();
-  } else {
-    stop();
-    if (loopMode) {
-      if (currentBlock === "work") {
-        setMode("short");
-        start();
-      } else {
-        setMode("work");
-        start();
-      }
+//Alarm helpers
+function getAlarmEl() {
+  return document.getElementById("alarmSound");
+}
+function stopAlarm() {
+  const alarm = getAlarmEl();
+  if (!alarm) return;
+  alarm.pause();
+  alarm.currentTime = 0;
+}
+
+//Timer logic
+function handleTimeUp() {
+  if (!alarmLock) {
+    const alarm = getAlarmEl();
+    if (alarm) {
+      alarm.currentTime = 0;
+      alarm.play().catch(() => {});
+    }
+    alarmLock = true;
+  }
+
+  stop();
+
+  if (loopMode) {
+    if (currentBlock === "work") {
+      setMode("short");
+      start();
+    } else {
+      setMode("work");
+      start();
     }
   }
+}
+
+function tick() {
+  if (secondsLeft <= 0) {
+    handleTimeUp();
+    return;
+  }
+  secondsLeft = Math.max(0, secondsLeft - 1);
+  renderDigits();
+  if (secondsLeft === 0) handleTimeUp();
 }
 
 function start() {
   if (running) return;
   running = true;
+  alarmLock = false;
   renderDigits();
   updatePressedStates();
   tickId = setInterval(tick, 1000);
@@ -116,6 +143,9 @@ function stop() {
 }
 
 function setMode(mode) {
+  stopAlarm();
+  alarmLock = false;
+
   currentBlock = mode;
   const mins = DURATIONS[mode];
   secondsLeft = mins * 60;
@@ -124,37 +154,33 @@ function setMode(mode) {
   updatePressedStates();
 }
 
-// ===== Modal open/close =====
 function openCustomModal() {
+  if (!customModal) return;
   inWork.value  = DURATIONS.work;
   inShort.value = DURATIONS.short;
   inLong.value  = DURATIONS.long;
 
   customModal.hidden = false;
   customModal.setAttribute("aria-hidden", "false");
-
-  // focus first input
   inWork.focus();
 
   document.addEventListener("keydown", escCloseHandler);
 }
-
 function closeCustomModal() {
+  if (!customModal) return;
   customModal.hidden = true;
   customModal.setAttribute("aria-hidden", "true");
   document.removeEventListener("keydown", escCloseHandler);
 }
-
 function escCloseHandler(e) {
   if (e.key === "Escape") closeCustomModal();
 }
 
-// Close on backdrop or [x] or Cancel
 customModal?.addEventListener("click", (e) => {
   if (e.target.closest("[data-close-modal]")) closeCustomModal();
 });
 
-// ===== Events =====
+//Events
 playBtn?.addEventListener("click", start);
 pauseBtn?.addEventListener("click", stop);
 
@@ -184,9 +210,7 @@ customForm?.addEventListener("submit", (e) => {
   renderDigits();
   if (wasRunning) start();
 
-  // A11y announce
   if (srTimer) srTimer.textContent = `Saved custom durations. Work ${w} minutes, short ${s}, long ${l}.`;
-
   closeCustomModal();
 });
 
@@ -197,13 +221,12 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// Helpers
 function clampInt(v, min, max){
   const n = Math.floor(Number(v));
   if (Number.isNaN(n)) return min;
   return Math.max(min, Math.min(max, n));
 }
 
-// ===== Init =====
+//Initialize
 renderDigits();
 updatePressedStates();
