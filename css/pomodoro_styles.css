@@ -1,3 +1,4 @@
+/* Base */
 html, body {
   margin: 0;
   padding: 0;
@@ -198,7 +199,68 @@ body{
   background-color: #0d571a;
   box-shadow: 0 6px 0 #7c1717;
 }
-  
+
+.controls-bottom {
+  position: fixed;      /* override any grid flow */
+  left: 50%;
+  bottom: 10%;              /* adjust spacing from bottom */
+  transform: translateX(-50%);
+  z-index: 10;              /* above the tomato image */
+}
+
+/* Custom Timer Modal */
+.modal[hidden] { display: none; }
+.modal { position: fixed; inset: 0; z-index: 999; }
+.modal__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+
+.modal__dialog{
+  position: relative;
+  width: min(480px, 90vw);
+  margin: 8vh auto 0;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  padding: 1.25rem 1.25rem 1rem;
+  font-family: inherit;
+}
+.modal__dialog h2{ 
+  margin: 0 0 .75rem 0; 
+}
+
+.modal__form{ 
+  display: grid; 
+  gap: .75rem; 
+}
+
+.modal__form label{ 
+  display: grid;
+  gap: .35rem; 
+  font-size: 16px; 
+}
+
+.modal__form input{
+  padding: .5rem .65rem;
+  font-size: 16px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  outline: none;
+}
+.modal__form input:focus{
+  border-color: #F8A9B7;
+  box-shadow: 0 0 0 3px rgba(248,169,183,.25);
+}
+
+.modal__actions{ 
+  margin-top: .5rem; 
+  display: flex; 
+  gap: .5rem; 
+  justify-content: flex-end;}
+
+.modal__close{
+  position: absolute; top: 8px; right: 10px;
+  border: none; background: transparent;
+  font-size: 28px; line-height: 1; cursor: pointer;
+}
 
 .sr-only{
   position:absolute !important; 

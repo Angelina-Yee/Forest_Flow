@@ -33,6 +33,7 @@
     <div class="stage">
       <img class="tomato" src="assets/tomato-noeyes.svg" alt="Tomato timer">
 
+      <!--left eye-->
       <div class="eye eye-left">
         <div class="eye-sway">
           <div class="pupil"></div>
@@ -40,6 +41,7 @@
         </div>
       </div>
 
+      <!--right eye-->
       <div class="eye eye-right">
         <div class="eye-sway">
           <div class="pupil"></div>
@@ -60,8 +62,43 @@
       <button class="pill pill-pink" id="longBtn">long break</button>
     </div>
 
-    <div class="sr-only" aria-live="polite" id="srTimer">25 minutes</div>
-  </section>
+    <!--custom timer button-->
+    <div class="controls controls-bottom">
+      <button class="pill pill-red" id="customBtn">custom timer</button>
+    </div>
+
+    <!--custom timer popup-->
+    <div class="modal" id="customModal" hidden aria-hidden="true">
+      <div class="modal__backdrop" data-close-modal></div>
+  
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="customTitle">
+        <h2 id="customTitle">Custom Timer</h2>
+  
+        <form id="customForm" class="modal__form">
+          <label>
+            Pomodoro (minutes)
+            <input type="number" id="inWork" min="1" max="180" required>
+          </label>
+  
+          <label>
+            Short break (minutes)
+            <input type="number" id="inShort" min="1" max="180" required>
+          </label>
+  
+          <label>
+            Long break (minutes)
+            <input type="number" id="inLong" min="1" max="180" required>
+          </label>
+  
+          <div class="modal__actions">
+            <button type="button" class="pill" id="cancelCustom" data-close-modal>Cancel</button>
+            <button type="submit" class="pill pill-red" id="saveCustom">Save</button>
+          </div>
+        </form>
+  
+        <button class="modal__close" aria-label="Close" title="Close" data-close-modal>×</button>
+      </div>
+    </div>
 
   <script src="./js/pomodoro.js"></script>
 </body>
