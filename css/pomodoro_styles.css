@@ -21,6 +21,15 @@ body{
   place-items: center;
 }
 
+.spotify-embed {
+  position: absolute;
+  top: -20%;
+  left: 33%;
+  width: min(360px, 30vw);
+  height: 152px;
+  z-index: 5;
+}
+
 .stage{
   position: relative;
   width: min(520px, 58vw);
