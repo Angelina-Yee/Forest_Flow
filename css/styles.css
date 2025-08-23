@@ -304,8 +304,8 @@ html, body {
     }
 
     .characters{
-        position: relative;
         align-self: center;
+        position: relative;
         margin-top: 25rem;
         margin-left: -15rem;
     }
@@ -364,3 +364,103 @@ html, body {
     }
 }
 
+@media screen and (max-width: 1050px){
+    .logo{
+        right: 52%;
+    }
+
+    .fake_sun{
+        left: 58%;
+    }
+}
+
+@media screen and (max-width: 945px){
+    .logo{
+        right: 49%;
+    }
+}
+
+@media screen and (max-width: 880px){
+    .logo{
+        right: 44%;
+    }
+
+    .fake_sun{
+        left: 53%;
+    }
+}
+
+@media screen and (max-width: 810px){
+    .logo{
+        right: 40%;
+    }
+}
+
+@media screen and (max-width: 760px){
+    .logo{
+        right: 45%;
+        width: 450px;
+        height: 200px;
+    }
+
+    .fake_sun{
+        width: 450px;
+        height: 250px;
+        left: 55%;
+    }
+
+    .characters{
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .logo{
+        right: 40%;
+    }
+
+    .fake_sun{
+        left: 50%;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .logo{
+        right: 35%;
+    }
+
+    .fake_sun{
+        left: 45%;
+    }
+
+    .characters{
+        width: 560px;
+    }
+}
+
+@media screen and (max-width: 590px){
+    .logo{
+        right: 40%;
+        width: 400px;
+        height: 150px;
+    }
+
+    .fake_sun{
+        left: 40%;
+    }
+
+    .characters{
+        width: 520px;
+    }
+}
+
+@media screen and (max-width: 540px){
+    .logo{
+        right: 35%;
+    }
+
+    .fake_sun{
+        width: 430px;
+        height: 230px;
+    }
+}
