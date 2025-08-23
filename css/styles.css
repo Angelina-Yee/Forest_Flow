@@ -90,6 +90,16 @@ html, body {
     z-index: 2;
 }
 
+.spotify-embed {
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(420px, 92vw);
+    height: 100px;
+    z-index: 1000;
+}
+
 /* Tour */
 #tour_overlay{
     position: fixed;
@@ -341,6 +351,16 @@ html, body {
 
     .highlight, #sun.highlight, #table.highlight{
         display: none !important;
+    }
+
+    .spotify-embed{
+        position: absolute;
+        top: 33rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(420px, 200vw);
+        height: 200px;
+        z-index: 3;
     }
 }
 

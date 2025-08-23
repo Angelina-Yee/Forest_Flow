@@ -27,13 +27,24 @@
                 <img src="assets/characters.svg" class="characters" alt="characters" draggable="false">
                 <a href="pomodoro.html" id="sun" target="_blank" aria-label="Pomodoro Timer"></a>
                 <a href="to-do.html" id="table" target="_blank" aria-label="Task Organizer"></a>
+
+                <!--Audio Player-->
+                <div class="spotify-embed">
+                    <iframe 
+                    data-testid="embed-iframe" 
+                    style="border-radius:12px" 
+                    src="https://open.spotify.com/embed/playlist/1vm8GNDZzYEkVQcoArNySo?utm_source=generator" 
+                    width="100%" height="130" frameBorder="0" 
+                    allowfullscreen="" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy">
+                    </iframe>
+                </div>
+
                 <div class="grass"></div>
             </div>
         </div>
-
-        <!--Audio Player-->
         
-
         <!--Guide-->
         <ul id="tour_steps" style="display:none;">
             <li class="tour_step" data-selector=".musicnotes" data-position="top">Each music note plays a different tune! Select you ambience! 
