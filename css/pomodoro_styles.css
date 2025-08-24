@@ -13,9 +13,19 @@ body{
   background-color: #FFE4E0;
 }
 
+h1{
+  position: fixed;
+  top: 40px;
+  left: 41%;
+  margin: 0;
+  text-align: center;
+  font-size: 5vw;
+  color: rgb(195, 24, 24);
+}
+
 .upper{
   position: relative;
-  width: min(1000px, 92vw);
+  width: min(1000px, 100vw);
   aspect-ratio: 16 / 9;
   display: grid;
   place-items: center;
@@ -200,7 +210,7 @@ body{
   box-shadow: 0 6px 0 #a31f1f;
 }
 .pill-red[aria-pressed="true"]{
-  outline: 3px solid #0d571a;
+  background-color: #0d571a;
   box-shadow: 0 6px 0 #7c1717;
 }
 
