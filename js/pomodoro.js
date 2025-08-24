@@ -227,6 +227,60 @@ function clampInt(v, min, max){
   return Math.max(min, Math.min(max, n));
 }
 
+//Toggle in Media query
+const mq1Small = window.matchMedia('(max-width: 720px)');
+
+function updateBubbleIcon(){
+  const icon = pauseBtn?.querySelector('.icon');
+  if (!icon || !pauseBtn) return;
+
+  if (mq1Small.matches){
+    icon.classList.remove('icon-play', 'icon-pause');
+    icon.classList.add(running ? 'icon-pause' : 'icon-play');
+    pauseBtn.setAttribute('aria-label', running ? 'Pause' : 'Play');
+  }
+  else {
+    icon.classList.remove('icon-play');
+    icon.classList.add('icon-pause');
+    pauseBtn.setAttribute('aria-label','Pause');
+  }
+}
+
+function handleToggleClick(){
+  running ? stop() : start();
+}
+
+function applyResponsiveControls() {
+  if(!pauseBtn) return;
+  if(mq1Small.matches) {
+    pauseBtn.removeEventListener('click', stop);
+    pauseBtn.addEventListener('click', handleToggleClick);
+  }
+  else {
+    pauseBtn.removeEventListener('click', handleToggleCLick);
+    pauseBtn.addEventListener('click', stop);
+  }
+  updateBubbleIcon();
+}
+
+mq1Small.addEventListener('change', applyResponsiveControls);
+
+function updatePressedStates() {
+  setPressed(playBtn, running);
+  setPressed(pauseBtn, !running);
+
+  setPressed(pomodoroBtn, currentBlock === "work");
+  setPressed(shortBtn, currentBlock === "short");
+  setPressed(longBtn, currentBlock === "long");
+
+  setPressed(loopBtn, loopMode);
+
+  updateBubbleIcon();
+}
+
+
+
 //Initialize
 renderDigits();
 updatePressedStates();
+applyResponsiveControls();

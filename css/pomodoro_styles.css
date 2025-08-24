@@ -315,10 +315,56 @@ h1{
 }
 
 @media (max-width: 720px){
-  .stage{ width: min(440px, 78vw); }
-  .bubble-img{ width: clamp(100px, 18vw, 140px); }
-  .bubble{ top: 10%; }
-  .controls-left{  left: 3%; bottom: 8%; }
-  .controls-right{ right: 3%; bottom: 8%; }
-  .eye-number{ font-size: clamp(22px, 4vw, 30px); }
+  h1{
+    font-size: 10vw;
+    top: 80px;
+    left: 35%;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .bubble-left{
+    display: none !important;
+  }
+
+  .upper{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "stage stage"
+    "left right"
+    "custom custom";
+    gap: 15px;
+  }
+
+  .stage {
+    grid-area: stage;
+    justify-self: center;
+  }
+
+  .bubble-right{
+    position: absolute;
+    right: max(3vw, 12px);
+    top: 12%;
+  }
+
+  .controls-left{
+    grid-area: left;
+    display: grid;
+    gap: 15px;
+    justify-self: start;
+  }
+
+  .controls-right{
+    grid-area : right;
+    display: grid;
+    gap: 15px;
+    justify-self: end;
+  }
+
+  .controls-bottom{
+    grid-area: custom;
+    justify-self: center;
+  }
 }
